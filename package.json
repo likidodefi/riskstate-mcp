@@ -1,0 +1,55 @@
+{
+  "name": "@riskstate/mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for RiskState — deterministic risk governance API for crypto trading agents",
+  "main": "dist/index.js",
+  "bin": {
+    "riskstate-mcp": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://riskstate.ai",
+  "bugs": {
+    "url": "https://github.com/likidodefi/riskstate-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "risk-governance",
+    "risk-management",
+    "crypto",
+    "defi",
+    "ai-agents",
+    "autonomous-agents",
+    "agent-tools",
+    "trading-agents",
+    "btc",
+    "eth",
+    "policy-engine"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/likidodefi/riskstate-mcp"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

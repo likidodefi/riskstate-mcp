@@ -19,6 +19,7 @@ server.tool(
     asset: z.enum(["BTC", "ETH"]).describe("Asset to get risk policy for"),
     wallet_address: z
       .string()
+      .regex(/^0x[a-fA-F0-9]{40}$/, "Must be a valid Ethereum address (0x + 40 hex chars)")
       .optional()
       .describe(
         "DeFi wallet address for on-chain position data (LTV, health factor)"

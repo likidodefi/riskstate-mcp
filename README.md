@@ -5,6 +5,8 @@ MCP server for [RiskState](https://riskstate.ai) — deterministic risk governan
 Your agent asks: **"How much can I risk?"**
 RiskState answers with: policy level, max position size, leverage limits, blocked actions.
 
+[![riskstate-mcp MCP server](https://glama.ai/mcp/servers/likidodefi/riskstate-mcp/badges/card.svg)](https://glama.ai/mcp/servers/likidodefi/riskstate-mcp)
+
 ## What it does
 
 Wraps the [RiskState `/v1/risk-state` API](https://github.com/likidodefi/riskstate-docs) as an MCP tool. One tool: `get_risk_policy`.

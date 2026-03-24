@@ -5,8 +5,6 @@ MCP server for [RiskState](https://riskstate.ai) — deterministic risk governan
 Your agent asks: **"How much can I risk?"**
 RiskState answers with: policy level, max position size, leverage limits, blocked actions.
 
-[![riskstate-mcp MCP server](https://glama.ai/mcp/servers/likidodefi/riskstate-mcp/badges/card.svg)](https://glama.ai/mcp/servers/likidodefi/riskstate-mcp)
-
 ## What it does
 
 Wraps the [RiskState `/v1/risk-state` API](https://github.com/likidodefi/riskstate-docs) as an MCP tool. One tool: `get_risk_policy`.
@@ -61,7 +59,7 @@ Add to `~/.config/Claude/claude_desktop_config.json`:
   "mcpServers": {
     "riskstate": {
       "command": "npx",
-      "args": ["@riskstate/mcp-server"],
+      "args": ["-p", "@riskstate/mcp-server", "riskstate-mcp"],
       "env": {
         "RISKSTATE_API_KEY": "your-api-key"
       }
@@ -73,13 +71,20 @@ Add to `~/.config/Claude/claude_desktop_config.json`:
 ### Claude Code
 
 ```bash
-claude mcp add riskstate -- npx @riskstate/mcp-server
+claude mcp add riskstate -- npx -p @riskstate/mcp-server riskstate-mcp
 ```
 
 Set the API key in your environment:
 
 ```bash
 export RISKSTATE_API_KEY=your-api-key
+```
+
+### Global install (alternative)
+
+```bash
+npm install -g @riskstate/mcp-server
+riskstate-mcp  # starts MCP server on stdio
 ```
 
 ## Usage

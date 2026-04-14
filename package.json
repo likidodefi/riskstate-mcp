@@ -1,7 +1,7 @@
 {
   "name": "@riskstate/mcp-server",
-  "version": "1.0.2",
-  "description": "MCP server for RiskState — deterministic risk governance API for crypto trading agents",
+  "version": "1.0.4",
+  "description": "MCP server for RiskState — pre-trade risk permissions for BTC/USD and ETH/USD. Spot, perps, and DeFi aware.",
   "main": "dist/index.js",
   "bin": {
     "mcp-server": "dist/index.js",
@@ -26,19 +26,26 @@
     "url": "https://github.com/likidodefi/riskstate-mcp/issues"
   },
   "keywords": [
+    "crypto",
+    "ai",
+    "bitcoin",
+    "trading",
+    "ethereum",
+    "trading-bot",
+    "agents",
+    "policy-engine",
+    "ai-agents",
+    "defi",
+    "decentralized-finance",
+    "ai-trading",
+    "agent-skills",
+    "defi-risk-management",
+    "risk-governance",
+    "skills-sh",
     "mcp",
     "model-context-protocol",
-    "risk-governance",
-    "risk-management",
-    "crypto",
-    "defi",
-    "ai-agents",
-    "autonomous-agents",
-    "agent-tools",
-    "trading-agents",
-    "btc",
-    "eth",
-    "policy-engine"
+    "mcp-server",
+    "trading-agents"
   ],
   "license": "MIT",
   "repository": {

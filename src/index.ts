@@ -62,7 +62,7 @@ server.tool(
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify(body),
-        signal: AbortSignal.timeout(15000),
+        signal: AbortSignal.timeout(30000),
       });
 
       if (!response.ok) {
@@ -94,17 +94,19 @@ server.tool(
 
       // Build human-readable summary for quick agent parsing
       const policy = data.exposure_policy || {};
-      const classification = data.classification || {};
-      const audit = data.auditability || {};
+      const maxSizePct = policy.max_size_fraction != null
+        ? (policy.max_size_fraction * 100).toFixed(1)
+        : "?";
 
       const summary = [
-        `POLICY: ${policy.policy_level || "UNKNOWN"}`,
-        `MAX SIZE: ${policy.max_size_pct ?? "?"}%`,
-        `LEVERAGE: ${policy.leverage_max ?? "?"}x`,
+        `POLICY: Level ${data.policy_level ?? "?"} | ${data.structural_state ?? "?"}`,
+        `MAX SIZE: ${maxSizePct}%`,
+        `LEVERAGE: ${policy.max_leverage ?? "?"}`,
         `BLOCKED: ${(policy.blocked_actions || []).join(", ") || "none"}`,
-        `REGIME: ${classification.market_regime || "?"} | DIRECTION: ${classification.direction || "?"}`,
-        `COMPOSITE: ${audit.composite_score ?? "?"} | CONFIDENCE: ${audit.confidence_score ?? "?"}`,
-        `TTL: ${audit.ttl_seconds ?? 60}s`,
+        `REGIME: ${data.market_regime || "?"} | VOLATILITY: ${data.volatility_regime || "?"}`,
+        `CONFIDENCE: ${data.confidence_score ?? "?"} | DATA QUALITY: ${data.data_quality_score ?? "?"}%`,
+        `BINDING: ${data.binding_constraint?.source ?? "?"} (${data.binding_constraint?.reason ?? "?"})`,
+        `TTL: ${data.ttl_seconds ?? 60}s`,
       ].join("\n");
 
       return {
@@ -119,7 +121,7 @@ server.tool(
       const message =
         err instanceof Error
           ? err.name === "TimeoutError" || err.name === "AbortError"
-            ? "Request timed out after 15s. The API may be under heavy load — retry in 30s."
+            ? "Request timed out after 30s. The API may be under heavy load — retry in 30s."
             : `Network error: ${err.message}`
           : "Unknown error";
       return {

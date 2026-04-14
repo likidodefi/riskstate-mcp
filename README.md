@@ -1,9 +1,9 @@
 # RiskState MCP Server
 
-MCP server for [RiskState](https://riskstate.ai) — deterministic risk governance API for autonomous crypto trading agents.
+MCP server for [RiskState](https://riskstate.ai) — pre-trade risk permissions for BTC/USD and ETH/USD. Spot, perpetual futures (perps), and DeFi borrowing aware.
 
-Your agent asks: **"How much can I risk?"**
-RiskState answers with: policy level, max position size, leverage limits, blocked actions.
+Your system asks: **"How much can I risk right now?"**
+RiskState answers with: policy level, max exposure, leverage limits, blocked actions — computed from 30+ real-time signals.
 
 ## What it does
 
@@ -137,7 +137,8 @@ Call `get_risk_policy` **before every trade**:
 
 ## Limitations
 
-- **v1 scope:** BTC and ETH only. More assets planned.
+- **v1 scope:** BTC/USD and ETH/USD only (USD-denominated assessment). More assets planned.
+- **Markets:** Spot, perpetual futures, and DeFi borrowing. Same response — interpretation differs by market (see [API docs](https://github.com/likidodefi/riskstate-docs)).
 - **Protocols:** Spark and Aave V3 only for DeFi position data.
 - **Rate limit:** 60 requests/minute per API key.
 - **Latency:** ~1-3s per request (9+ upstream data source aggregation).

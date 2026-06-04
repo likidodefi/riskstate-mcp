@@ -1,6 +1,6 @@
 {
   "name": "@riskstate/mcp-server",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "MCP server for RiskState — pre-trade risk permissions for BTC/USD and ETH/USD. Spot, perps, and DeFi aware.",
   "main": "dist/index.js",
   "bin": {
@@ -21,10 +21,14 @@
     "README.md",
     "LICENSE"
   ],
-  "homepage": "https://riskstate.ai",
+  "homepage": "https://github.com/likidodefi/riskstate-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likidodefi/riskstate-mcp.git"
+  },
   "bugs": {
     "email": "hello@likido.xyz",
-    "url": "https://riskstate.ai/docs/mcp"
+    "url": "https://github.com/likidodefi/riskstate-mcp/issues"
   },
   "keywords": [
     "crypto",

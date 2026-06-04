@@ -32,7 +32,7 @@ npm test          # Run tests
 
 ## Reporting Bugs
 
-Open an issue at https://github.com/likidodefi/riskstate-mcp/issues with:
+Open an issue at https://riskstate.ai/docs/mcp with:
 - Steps to reproduce
 - Expected vs actual behavior
 - Node.js version and OS

@@ -7,7 +7,7 @@ RiskState answers with: policy level, max exposure, leverage limits, blocked act
 
 ## What it does
 
-Wraps the [RiskState `/v1/risk-state` API](https://github.com/likidodefi/riskstate-docs) as an MCP tool. One tool: `get_risk_policy`.
+Wraps the [RiskState `/v1/risk-state` API](https://riskstate.ai/docs/api) as an MCP tool. One tool: `get_risk_policy`.
 
 | Field | Description |
 |-------|-------------|
@@ -18,7 +18,7 @@ Wraps the [RiskState `/v1/risk-state` API](https://github.com/likidodefi/risksta
 | `blocked_actions` | What the agent CANNOT do |
 | `confidence_score` | Signal agreement x data quality (0-1) |
 
-The API aggregates 9+ real-time data sources server-side. See [API docs](https://github.com/likidodefi/riskstate-docs) for details.
+The API aggregates 9+ real-time data sources server-side. See [API docs](https://riskstate.ai/docs/api) for details.
 
 ## What this wrapper does (and doesn't)
 
@@ -48,7 +48,7 @@ npm install @riskstate/mcp-server
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `RISKSTATE_API_KEY` | Yes | API key from [riskstate.ai](https://riskstate.ai) (free during beta) |
-| `RISKSTATE_API_URL` | No | Custom API base URL (default: `https://riskstate.netlify.app`) |
+| `RISKSTATE_API_URL` | No | Custom API base URL (default: `https://api.riskstate.ai`) |
 
 ### Claude Desktop
 
@@ -138,7 +138,7 @@ Call `get_risk_policy` **before every trade**:
 ## Limitations
 
 - **v1 scope:** BTC/USD and ETH/USD only (USD-denominated assessment). More assets planned.
-- **Markets:** Spot, perpetual futures, and DeFi borrowing. Same response — interpretation differs by market (see [API docs](https://github.com/likidodefi/riskstate-docs)).
+- **Markets:** Spot, perpetual futures, and DeFi borrowing. Same response — interpretation differs by market (see [API docs](https://riskstate.ai/docs/api)).
 - **Protocols:** Spark and Aave V3 only for DeFi position data.
 - **Rate limit:** 60 requests/minute per API key.
 - **Latency:** ~1-3s per request (9+ upstream data source aggregation).
@@ -147,7 +147,7 @@ Call `get_risk_policy` **before every trade**:
 ## Links
 
 - **Landing page:** [riskstate.ai](https://riskstate.ai)
-- **API docs:** [github.com/likidodefi/riskstate-docs](https://github.com/likidodefi/riskstate-docs)
+- **API docs:** [riskstate.ai/docs/api](https://riskstate.ai/docs/api)
 - **SKILL.md:** [agentskills.io](https://agentskills.io)
 
 ## License

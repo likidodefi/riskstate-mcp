@@ -24,6 +24,6 @@ This MCP server is a thin API client. It:
 - Does **not** store API keys on disk (reads from environment variables only)
 - Does **not** execute trades or modify blockchain state
 - Does **not** cache or persist any data
-- Communicates only with `riskstate.netlify.app` (configurable via `RISKSTATE_API_URL`)
+- Communicates only with `api.riskstate.ai` (configurable via `RISKSTATE_API_URL`)
 
 Security concerns related to the RiskState API itself should be reported to the same email address.

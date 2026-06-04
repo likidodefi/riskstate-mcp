@@ -5,7 +5,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 
 const API_BASE =
-  process.env.RISKSTATE_API_URL || "https://riskstate.netlify.app";
+  process.env.RISKSTATE_API_URL || "https://api.riskstate.ai";
 
 const server = new McpServer({
   name: "riskstate",

@@ -3,7 +3,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 // We test the tool handler logic by extracting the core behavior.
 // Since the MCP SDK wires tools internally, we test the fetch + response logic directly.
 
-const API_BASE = "https://riskstate.netlify.app";
+const API_BASE = "https://api.riskstate.ai";
 
 // Mock response factory
 function mockResponse(status: number, body: unknown): Response {
@@ -286,7 +286,7 @@ describe("get_risk_policy", () => {
 
     expect(fetchFn).toHaveBeenCalledOnce();
     const [url, options] = fetchFn.mock.calls[0];
-    expect(url).toBe("https://riskstate.netlify.app/v1/risk-state");
+    expect(url).toBe("https://api.riskstate.ai/v1/risk-state");
     expect(options.method).toBe("POST");
     expect(JSON.parse(options.body)).toEqual({
       asset: "ETH",
